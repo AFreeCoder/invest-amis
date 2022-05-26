@@ -9,53 +9,49 @@
         "redirect": "/index/1"
       },
       {
-        "label": "示例",
+        "label": "数据",
         "children": [
           {
-            "label": "页面A",
+            "label": "市场行情",
+            "schema": {
+              "type": "page",
+              "title": "市场行情",
+              "body": "市场行情"
+            }
+          },
+          {
+            "label": "基金公司",
             "url": "index",
             "schema": {
               "type": "page",
-              "title": "页面A",
-              "body": "页面A"
+              "title": "基金公司",
+              "body": "基金公司"
             },
             "children": [
               {
-                "label": "页面A-1",
+                "label": "规模数据",
                 "url": "1",
-                "schema": {
-                  "type": "page",
-                  "title": "页面A-1",
-                  "body": "页面A-1"
-                }
+                "schemaApi": "get:/pages/scale.json"
               },
               {
-                "label": "页面A-2",
+                "label": "收益水平",
                 "url": "2",
                 "schema": {
                   "type": "page",
-                  "title": "页面A-2",
-                  "body": "页面A-2"
+                  "title": "收益水平",
+                  "body": "收益水平"
                 }
               },
               {
-                "label": "页面A-3",
+                "label": "获奖数据",
                 "url": "3",
                 "schema": {
                   "type": "page",
-                  "title": "页面A-3",
-                  "body": "页面A-3"
+                  "title": "获奖数据",
+                  "body": "获奖数据"
                 }
               }
             ]
-          },
-          {
-            "label": "页面B",
-            "schema": {
-              "type": "page",
-              "title": "页面B",
-              "body": "页面B"
-            }
           },
           {
             "label": "页面C",
