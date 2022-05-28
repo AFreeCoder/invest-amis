@@ -1,20 +1,12 @@
 {
     "type": "page",
-    "title": "规模数据",
+    "title": "收益水平",
     "body": [
         {
             "label": "基金类型",
             "type": "select",
             "name": "select",
             "options": [
-                {
-                    "label": "全部",
-                    "value": "all"
-                },
-                {
-                    "label": "非货币理财型基金",
-                    "value": "non-monetary-wm"
-                },
                 {
                     "label": "股票型基金",
                     "value": "equity"
@@ -53,7 +45,7 @@
             "syncLocation": true,
             "api": {
                 "method": "get",
-                "url": "http://localhost:8000/finance/fund-company/scale?fund_type=${select}&orderBy=${orderBy}&orderDir=${orderDir}"
+                "url": "http://localhost:8000/finance/fund-company/yield?fund_type=${select}&orderBy=${orderBy}&orderDir=${orderDir}"
             },
             "initFetch": false,
             "columns": [
@@ -68,44 +60,28 @@
                     "type": "text"
                 },
                 {
-                    "name": "establish_date",
-                    "label": "创建时间",
-                    "type": "text"
-                },
-                {
+                    "name": "avg_six_month",
+                    "label": "近6月平均收益",
                     "type": "text",
-                    "label": "规模(亿)",
-                    "name": "scale",
                     "sortable": true
                 },
                 {
+                    "name": "avg_one_year",
+                    "label": "近1年平均收益",
                     "type": "text",
-                    "label": "基金数量",
-                    "name": "fund_count",
                     "sortable": true
                 },
                 {
+                    "name": "avg_three_year",
+                    "label": "近3年平均收益",
                     "type": "text",
-                    "label": "基金经理数",
-                    "name": "fund_manager_count",
                     "sortable": true
                 },
                 {
+                    "name": "avg_five_year",
+                    "label": "近5年平均收益",
                     "type": "text",
-                    "label": "平均规模(亿)",
-                    "name": "avg_scale",
                     "sortable": true
-                },
-                {
-                    "type": "text",
-                    "label": "平均管理规模(亿)",
-                    "name": "avg_manage_scale",
-                    "sortable": true
-                },
-                {
-                    "type": "text",
-                    "label": "更新日期",
-                    "name": "update_date"
                 }
             ],
             "bulkActions": [],

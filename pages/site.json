@@ -21,30 +21,21 @@
           },
           {
             "label": "基金公司",
-            "url": "index",
-            "schema": {
-              "type": "page",
-              "title": "基金公司",
-              "body": "基金公司"
-            },
+            "icon": "fa fa-bank",
             "children": [
               {
                 "label": "规模数据",
-                "url": "1",
+                "url": "/fund_company/scale",
                 "schemaApi": "get:/pages/scale.json"
               },
               {
                 "label": "收益水平",
-                "url": "2",
-                "schema": {
-                  "type": "page",
-                  "title": "收益水平",
-                  "body": "收益水平"
-                }
+                "url": "/fund_company/yield",
+                "schemaApi": "get:/pages/yield.json"
               },
               {
                 "label": "获奖数据",
-                "url": "3",
+                "url": "/fund_company/award",
                 "schema": {
                   "type": "page",
                   "title": "获奖数据",
