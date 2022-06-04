@@ -1,0 +1,51 @@
+{
+    "type": "page",
+    "title": "规模数据",
+    "body": [
+        {
+            "type": "crud",
+            "syncLocation": true,
+            "api": {
+                "method": "get",
+                "url": "http://localhost:8000/finance/fund-company/detail?orderBy=${orderBy}&orderDir=${orderDir}"
+            },
+            "columns": [
+                {
+                    "name": "index",
+                    "label": "id",
+                    "type": "text"
+                },
+                {
+                    "name": "fund_company",
+                    "label": "公司名称",
+                    "type": "text"
+                },
+                {
+                    "name": "establish_date",
+                    "label": "创建时间",
+                    "type": "text"
+                },
+                {
+                    "type": "text",
+                    "label": "规模(亿)",
+                    "name": "scale",
+                    "sortable": true
+                },
+                {
+                    "type": "text",
+                    "label": "基金数量",
+                    "name": "fund_count",
+                    "sortable": true
+                },
+                {
+                    "type": "text",
+                    "label": "更新日期",
+                    "name": "update_date"
+                }
+            ],
+            "bulkActions": [],
+            "itemActions": [],
+            "id": "u:4e4cec777945"
+        }
+    ]
+}

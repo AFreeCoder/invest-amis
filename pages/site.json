@@ -24,6 +24,11 @@
             "icon": "fa fa-bank",
             "children": [
               {
+                "label": "基金公司基本信息",
+                "url": "/fund_company/dtail",
+                "schemaApi": "get:/pages/fund_company_detail.json"
+              },
+              {
                 "label": "基金规模数据",
                 "url": "/fund_company/scale",
                 "schemaApi": "get:/pages/fund_company_scale.json"
