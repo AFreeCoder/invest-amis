@@ -26,26 +26,22 @@
               {
                 "label": "基金规模数据",
                 "url": "/fund_company/scale",
-                "schemaApi": "get:/pages/scale.json"
+                "schemaApi": "get:/pages/fund_company_scale.json"
               },
               {
                 "label": "平均收益水平",
                 "url": "/fund_company/yield",
-                "schemaApi": "get:/pages/yield.json"
+                "schemaApi": "get:/pages/fund_company_yield.json"
               },
               {
                 "label": "基金经理工作年限",
                 "url": "/fund_company/work-year",
-                "schemaApi": "get:/pages/work-year.json"
+                "schemaApi": "get:/pages/fund_company_work-year.json"
               },
               {
                 "label": "金牛奖获奖数据",
-                "url": "/fund_company/ox-award",
-                "schema": {
-                  "type": "page",
-                  "title": "获奖数据",
-                  "body": "获奖数据"
-                }
+                "url": "/fund_company/award",
+                "schemaApi": "get:/pages/fund_company_awards.json"
               }
             ]
           },
