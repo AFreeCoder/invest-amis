@@ -25,8 +25,14 @@
             "children": [
               {
                 "label": "基金公司基本信息",
-                "url": "/fund_company/dtail",
-                "schemaApi": "get:/pages/fund_company_detail.json"
+                "url": "/fund_company/base",
+                "schemaApi": "get:/pages/fund_company_base.json"
+              },
+              {
+                "label": "基金公司详情",
+                "url": "/fund_company/scale-ratio",
+                "visible": false,
+                "schemaApi": "get:/pages/fund_company_scale_ratio.json"
               },
               {
                 "label": "基金规模数据",

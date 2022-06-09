@@ -7,7 +7,7 @@
             "syncLocation": true,
             "api": {
                 "method": "get",
-                "url": "http://localhost:8000/finance/fund-company/detail?orderBy=${orderBy}&orderDir=${orderDir}"
+                "url": "http://localhost:8000/finance/fund-company/base?orderBy=${orderBy}&orderDir=${orderDir}"
             },
             "columns": [
                 {
@@ -43,8 +43,11 @@
                     "name": "update_date"
                 }
             ],
-            "bulkActions": [],
-            "itemActions": [],
+            "itemAction": {
+                "type": "button",
+                "actionType": "link",
+                "link": "../fund_company/scale-ratio?fund_company=${fund_company}&company_code=${company_code}"
+            },
             "id": "u:4e4cec777945"
         }
     ]
