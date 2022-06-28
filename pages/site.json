@@ -32,7 +32,7 @@
                 "label": "基金公司详情",
                 "url": "/fund_company/scale-ratio",
                 "visible": false,
-                "schemaApi": "get:/pages/fund_company_scale_ratio.json"
+                "schemaApi": "get:/pages/fund_company_detail.json"
               },
               {
                 "label": "基金规模数据",

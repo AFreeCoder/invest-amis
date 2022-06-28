@@ -1,0 +1,181 @@
+{
+    "type": "page",
+    "title": "${fund_company}基本信息",
+    "data": {
+        "fund_map": [
+            {
+                "fund_name": "股票型",
+                "fund_type": "equity"
+            },
+            {
+                "fund_name": "混合型",
+                "fund_type": "hybrid"
+            },
+            {
+                "fund_name": "债券型",
+                "fund_type": "bond"
+            },
+            {
+                "fund_name": "指数型",
+                "fund_type": "index"
+            },
+            {
+                "fund_name": "QDII",
+                "fund_type": "qdii"
+            },
+            {
+                "fund_name": "货币型",
+                "fund_type": "monetary"
+            }
+        ]
+    },
+    "body": [
+        {
+            "type": "wrapper",
+            "title": "各类型基金规模占比",
+            "body": [
+                {
+                    "type": "markdown",
+                    "value": "## 各类型基金规模占比"
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "chart",
+                    "api": "http://localhost:8000/finance/fund-company/scale-ratio?company_code=${company_code}",
+                    "config": {
+                        "tooltip": {
+                            "trigger": "item",
+                            "formatter": "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        "legend": {
+                            "data": [
+                                "股票型基金",
+                                "混合型基金",
+                                "债券型基金",
+                                "指数型基金",
+                                "QDII基金",
+                                "货币型基金"
+                            ]
+                        },
+                        "series": [
+                            {
+                                "name": "规模（亿）/占比",
+                                "type": "pie",
+                                "radius": [
+                                    "0%",
+                                    "60%"
+                                ],
+                                "labelLine": {
+                                    "length": 30
+                                },
+                                "label": {
+                                    "formatter": "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+                                    "backgroundColor": "#F6F8FC",
+                                    "borderColor": "#8C8D8E",
+                                    "borderWidth": 1,
+                                    "borderRadius": 4,
+                                    "rich": {
+                                        "a": {
+                                            "color": "#6E7079",
+                                            "lineHeight": 22,
+                                            "align": "center"
+                                        },
+                                        "hr": {
+                                            "borderColor": "#8C8D8E",
+                                            "width": "100%",
+                                            "borderWidth": 1,
+                                            "height": 0
+                                        },
+                                        "b": {
+                                            "color": "#4C5058",
+                                            "fontSize": 14,
+                                            "fontWeight": "bold",
+                                            "lineHeight": 33
+                                        },
+                                        "per": {
+                                            "color": "#fff",
+                                            "backgroundColor": "#4C5058",
+                                            "padding": [
+                                                3,
+                                                4
+                                            ],
+                                            "borderRadius": 4
+                                        }
+                                    }
+                                },
+                                "data": "${scale_ratio}"
+                            }
+                        ]
+                    },
+                    "replaceChartOption": true,
+                    "id": "u:3abec3b8f7da",
+                    "height": "600px"
+                }
+            ]
+        },
+        {
+            "type": "wrapper",
+            "body": [
+                {
+                    "type": "markdown",
+                    "value": "## 各类型基金平均收益"
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "tabs",
+                    "source": "${fund_map}",
+                    "tabs": [
+                        {
+                            "title": "${fund_name}",
+                            "body": {
+                                "type": "chart",
+                                "api": "http://localhost:8000/finance/fund-company/yield-detail?company_code=${company_code}&fund_type=${fund_type|default:equity}",
+                                "config": {
+                                    "legend": {},
+                                    "tooltip": {},
+                                    "dataset": {
+                                        "source": {
+                                            "product": "${yield_detail.product}",
+                                            "本公司平均": "${yield_detail.current}",
+                                            "同类平均": "${yield_detail.similar}",
+                                            "比较基准": "${yield_detail.contrast}"
+                                        }
+                                    },
+                                    "xAxis": {
+                                        "type": "category"
+                                    },
+                                    "yAxis": {
+                                        "name": "平均收益率（%）",
+                                        "nameTextStyle": {
+                                            "fontStyle": "oblique",
+                                            "color": "#000",
+                                            "fontSize": 14
+                                        }
+                                    },
+                                    "series": [
+                                        {
+                                            "type": "bar"
+                                        },
+                                        {
+                                            "type": "bar"
+                                        },
+                                        {
+                                            "type": "bar"
+                                        }
+                                    ]
+                                },
+                                "trackExpression": "${select}",
+                                "replaceChartOption": true,
+                                "height": "600px"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
