@@ -1,0 +1,469 @@
+{
+    "type": "page",
+    "data": {
+        "object": {
+            "cp": "收盘点位",
+            "pb": "PB",
+            "pb-percentile": "PB百分位"
+        }
+    },
+    "title": "全市场概况",
+    "body": [
+        {
+            "type": "collapse-group",
+            "activeKey": [
+                "1",
+                "2"
+            ],
+            "body": [
+                {
+                    "type": "collapse",
+                    "key": "1",
+                    "header": "<b><big>全市场温度（PB百分位）</b>",
+                    "body": [
+                        {
+                            "type": "grid",
+                            "columns": [
+                                {
+                                    "body": [
+                                        {
+                                            "type": "chart",
+                                            "api": {
+                                                "method": "get",
+                                                "url": "INVEST_HOST/index/fundmental/percentile?stock_code=000300"
+                                            },
+                                            "config": {
+                                                "title": {
+                                                    "text": "${name}"
+                                                },
+                                                "series": [
+                                                    {
+                                                        "data": [
+                                                            {
+                                                                "value": "${cvpos}",
+                                                                "name": ""
+                                                            }
+                                                        ],
+                                                        "type": "gauge",
+                                                        "name": "Pressure",
+                                                        "progress": {
+                                                            "show": true
+                                                        },
+                                                        "detail": {
+                                                            "valueAnimation": true,
+                                                            "formatter": "{value}",
+                                                            "fontSize": 24
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "replaceChartOption": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "body": [
+                                        {
+                                            "type": "chart",
+                                            "api": {
+                                                "method": "get",
+                                                "url": "INVEST_HOST/index/fundmental/percentile?stock_code=000905"
+                                            },
+                                            "config": {
+                                                "title": {
+                                                    "text": "${name}"
+                                                },
+                                                "series": [
+                                                    {
+                                                        "data": [
+                                                            {
+                                                                "value": "${cvpos}",
+                                                                "name": ""
+                                                            }
+                                                        ],
+                                                        "type": "gauge",
+                                                        "name": "Pressure",
+                                                        "progress": {
+                                                            "show": true
+                                                        },
+                                                        "detail": {
+                                                            "valueAnimation": true,
+                                                            "formatter": "{value}",
+                                                            "fontSize": 24
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "replaceChartOption": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "body": [
+                                        {
+                                            "type": "chart",
+                                            "api": {
+                                                "method": "get",
+                                                "url": "INVEST_HOST/index/fundmental/percentile?stock_code=000852"
+                                            },
+                                            "config": {
+                                                "title": {
+                                                    "text": "${name}"
+                                                },
+                                                "series": [
+                                                    {
+                                                        "data": [
+                                                            {
+                                                                "value": "${cvpos}",
+                                                                "name": ""
+                                                            }
+                                                        ],
+                                                        "type": "gauge",
+                                                        "name": "Pressure",
+                                                        "progress": {
+                                                            "show": true
+                                                        },
+                                                        "detail": {
+                                                            "valueAnimation": true,
+                                                            "formatter": "{value}",
+                                                            "fontSize": 24
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "replaceChartOption": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "collapse",
+                    "key": "2",
+                    "active": true,
+                    "header": "<b><big>大小盘</b>",
+                    "body": [
+                        {
+                            "type": "select",
+                            "label": "请选择展示指标",
+                            "name": "select",
+                            "options": [
+                                {
+                                    "label": "收盘点位",
+                                    "value": "cp"
+                                },
+                                {
+                                    "label": "PB",
+                                    "value": "pb"
+                                },
+                                {
+                                    "label": "PB百分位",
+                                    "value": "pb-percentile"
+                                }
+                            ],
+                            "value": "pb-percentile",
+                            "multiple": false,
+                            "mode": "horizontal",
+                            "size": "md"
+                        },
+                        {
+                            "type": "chart",
+                            "api": {
+                                "method": "get",
+                                "url": "INVEST_HOST/index/fundmental/line-plot-data?stock_codes=000300,000905,000852&metrics=${select}"
+                            },
+                            "config": {
+                                "toolbox": {
+                                    "feature": {
+                                        "saveAsImage": {}
+                                    }
+                                },
+                                "tooltip": {
+                                    "trigger": "axis"
+                                },
+                                "legend": {},
+                                "grid": {
+                                    "left": "3%",
+                                    "right": "4%",
+                                    "bottom": "3%",
+                                    "containLabel": true
+                                },
+                                "xAxis": {
+                                    "type": "category",
+                                    "boundaryGap": false,
+                                    "data": "${x_data}"
+                                },
+                                "yAxis": {
+                                    "type": "value",
+                                    "name": "${object|pick:${select}}"
+                                },
+                                "series": [
+                                    {
+                                        "name": "沪深300",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000300_y_data}"
+                                    },
+                                    {
+                                        "name": "中证500",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000905_y_data}"
+                                    },
+                                    {
+                                        "name": "中证1000",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000852_y_data}"
+                                    }
+                                ],
+                                "dataZoom": [
+                                    {
+                                        "start": null,
+                                        "end": null,
+                                        "startValue": "${count - 1250}",
+                                        "endValue": "${x_data|last}"
+                                    }
+                                ]
+                            },
+                            "replaceChartOption": true
+                        }
+                    ]
+                },
+                {
+                    "type": "collapse",
+                    "key": "3",
+                    "header": "<b><big>行业对比</b>&nbsp;<b><i>(Every Dog Has His Day)</b>",
+                    "body": [
+                        {
+                            "type": "select",
+                            "label": "请选择指数",
+                            "name": "select1",
+                            "options": [
+                                {
+                                    "label": "全指信息",
+                                    "value": "000993"
+                                },
+                                {
+                                    "label": "中证消费",
+                                    "value": "000932"
+                                },
+                                {
+                                    "label": "全指医药",
+                                    "value": "000991"
+                                }
+                            ],
+                            "multiple": true,
+                            "checkAll": true,
+                            "size": "lg",
+                            "mode": "inline",
+                            "defaultCheckAll": true,
+                            "checkAllLabel": "全选"
+                        },
+                        {
+                            "type": "select",
+                            "label": "请选择展示指标",
+                            "name": "select2",
+                            "options": [
+                                {
+                                    "label": "收盘点位",
+                                    "value": "cp"
+                                },
+                                {
+                                    "label": "PB",
+                                    "value": "pb"
+                                },
+                                {
+                                    "label": "PB百分位",
+                                    "value": "pb-percentile"
+                                }
+                            ],
+                            "value": "pb-percentile",
+                            "multiple": false,
+                            "mode": "inline",
+                            "size": "md"
+                        },
+                        {
+                            "type": "chart",
+                            "api": {
+                                "method": "get",
+                                "url": "INVEST_HOST/index/fundmental/line-plot-data?stock_codes=${select1}&metrics=${select2}"
+                            },
+                            "config": {
+                                "toolbox": {
+                                    "feature": {
+                                        "saveAsImage": {}
+                                    }
+                                },
+                                "tooltip": {
+                                    "trigger": "axis"
+                                },
+                                "legend": {},
+                                "grid": {
+                                    "left": "3%",
+                                    "right": "4%",
+                                    "bottom": "3%",
+                                    "containLabel": true
+                                },
+                                "xAxis": {
+                                    "type": "category",
+                                    "boundaryGap": false,
+                                    "data": "${x_data}"
+                                },
+                                "yAxis": {
+                                    "type": "value",
+                                    "name": "${object|pick:${select2}}"
+                                },
+                                "series": [
+                                    {
+                                        "name": "全指信息",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000993_y_data}"
+                                    },
+                                    {
+                                        "name": "中证消费",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000932_y_data}"
+                                    },
+                                    {
+                                        "name": "全指医药",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${000991_y_data}"
+                                    }
+                                ],
+                                "dataZoom": [
+                                    {
+                                        "start": null,
+                                        "end": null,
+                                        "startValue": "${count - 1250}",
+                                        "endValue": "${x_data|last}"
+                                    }
+                                ]
+                            },
+                            "replaceChartOption": true
+                        }
+                    ]
+                },
+                {
+                    "type": "collapse",
+                    "key": "4",
+                    "header": "<b><big>股债性价比（FED）</b>",
+                    "body": [
+                        {
+                            "type": "select",
+                            "label": "请选择指数",
+                            "name": "select4",
+                            "options": [
+                                {
+                                    "label": "沪深300",
+                                    "value": "000300"
+                                },
+                                {
+                                    "label": "中证800",
+                                    "value": "000906"
+                                },
+                                {
+                                    "label": "中证全指",
+                                    "value": "1000002"
+                                }
+                            ],
+                            "size": "lg",
+                            "mode": "inline",
+                            "value": "000906"
+                        },
+                        {
+                            "type": "chart",
+                            "api": {
+                                "method": "get",
+                                "url": "INVEST_HOST/debt/mix-metrics/fed?stock_code=${select4}"
+                            },
+                            "config": {
+                                "toolbox": {
+                                    "feature": {
+                                        "saveAsImage": {}
+                                    }
+                                },
+                                "tooltip": {
+                                    "trigger": "axis"
+                                },
+                                "legend": {},
+                                "grid": {
+                                    "left": "3%",
+                                    "right": "4%",
+                                    "bottom": "3%",
+                                    "containLabel": true
+                                },
+                                "xAxis": {
+                                    "type": "category",
+                                    "boundaryGap": false,
+                                    "data": "${x_data}"
+                                },
+                                "yAxis": [
+                                    {
+                                        "type": "value",
+                                        "name": "收盘点位",
+                                        "alignTicks": true,
+                                        "position": "left"
+                                    },
+                                    {
+                                        "type": "value",
+                                        "name": "FED（股债性价比）",
+                                        "alignTicks": true,
+                                        "position": "right"
+                                    }
+                                ],
+                                "series": [
+                                    {
+                                        "name": "收盘点位",
+                                        "type": "line",
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${y_cp}"
+                                    },
+                                    {
+                                        "name": "股债性价比（FED）",
+                                        "type": "line",
+                                        "yAxisIndex": 1,
+                                        "emphasis": {
+                                            "focus": "series"
+                                        },
+                                        "data": "${y_fed}"
+                                    }
+                                ],
+                                "dataZoom": [
+                                    {
+                                        "start": null,
+                                        "end": null,
+                                        "startValue": "${count - 1250}",
+                                        "endValue": "${x_data|last}"
+                                    }
+                                ]
+                            },
+                            "replaceChartOption": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "messages": {},
+    "pullRefresh": {}
+}

@@ -1,0 +1,117 @@
+{
+    "type": "page",
+    "title": "指数温度计",
+    "body": [
+        {
+            "type": "select",
+            "label": "指数列表",
+            "name": "select",
+            "options": [
+                {
+                    "label": "沪深300",
+                    "value": "000300"
+                },
+                {
+                    "label": "中证500",
+                    "value": "000905"
+                },
+                {
+                    "label": "中证红利",
+                    "value": "000922"
+                },
+                {
+                    "label": "创业板指",
+                    "value": "399006"
+                },
+                {
+                    "label": "全指信息",
+                    "value": "000993"
+                },
+                {
+                    "label": "中证消费",
+                    "value": "000932"
+                },
+                {
+                    "label": "全指医药",
+                    "value": "000991"
+                },
+                {
+                    "label": "中证养老",
+                    "value": "399812"
+                },
+                {
+                    "label": "中国互联网50",
+                    "value": "H30533"
+                }
+            ],
+            "multiple": true,
+            "checkAll": true,
+            "size": "lg",
+            "mode": "normal",
+            "defaultCheckAll": true,
+            "checkAllLabel": "全选"
+        },
+        {
+            "type": "crud",
+            "syncLocation": false,
+            "api": {
+                "method": "get",
+                "url": "INVEST_HOST/index/fundmental/percentile-list?stock_codes=${select}&metrics_name=pb&granularity=y10",
+                "sendOn": "this.select.length > 0 "
+            },
+            "columns": [
+                {
+                    "name": "id",
+                    "label": "ID",
+                    "type": "text",
+                    "visible": false
+                },
+                {
+                    "name": "code",
+                    "label": "指数代码",
+                    "type": "text"
+                },
+                {
+                    "type": "text",
+                    "label": "指数名称",
+                    "name": "name"
+                },
+                {
+                    "type": "text",
+                    "label": "指标",
+                    "name": "metrics_name"
+                },
+                {
+                    "type": "text",
+                    "label": "分位值",
+                    "name": "percentile"
+                },
+                {
+                    "type": "text",
+                    "label": "更新日期",
+                    "name": "update_date"
+                },
+                {
+                    "type": "text",
+                    "label": "推荐仓位",
+                    "name": "recommend_position"
+                },
+                {
+                    "type": "text",
+                    "label": "推荐操作",
+                    "name": "recommend_operation"
+                }
+            ],
+            "bulkActions": [],
+            "itemActions": [],
+            "features": [],
+            "filterColumnCount": 3,
+            "title": "指数分位值详情",
+            "perPageAvailable": [
+                10
+            ],
+            "messages": {}
+        }
+    ],
+    "aside": []
+}
