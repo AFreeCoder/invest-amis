@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "gh-pages": "rm -rf gh-pages && fis3 release -d gh-pages -c",
-    "deploy-gh-pages": "git subtree push --prefix gh-pages gh-pages"
+    "deploy-gh-pages": "git subtree push --prefix=gh-pages origin gh-pages"
   },
   "keywords": [
     "amis",

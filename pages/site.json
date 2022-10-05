@@ -5,27 +5,27 @@
     "pages": [
       {
         "label": "Home",
-        "url": "/",
-        "redirect": "/market"
+        "url": "./",
+        "redirect": "./market"
       },
       {
         "label": "数据",
         "children": [
           {
             "label": "市场行情",
-            "url": "/market",
-            "rewrite": "/market/index/overview",
+            "url": "./market",
+            "rewrite": "./market/index/overview",
             "icon": "fa fa-cube",
             "children": [
               {
                 "label": "概况",
-                "url": "/market/index/overview",
+                "url": "./market/index/overview",
                 "icon": "fa fa-line-chart",
                 "schemaApi": "get:/pages/index_overview.json"
               },
               {
                 "label": "指数温度",
-                "url": "/market/index/temperature",
+                "url": "./market/index/temperature",
                 "icon": "fa fa-thermometer-three-quarters",
                 "schemaApi": "get:/pages/index_temperature.json"
               },
