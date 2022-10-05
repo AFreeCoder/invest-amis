@@ -5,39 +5,29 @@
     "pages": [
       {
         "label": "Home",
-        "url": "./",
-        "redirect": "./market"
+        "url": "/",
+        "redirect": "/market"
       },
       {
         "label": "数据",
         "children": [
           {
             "label": "市场行情",
-            "url": "./market",
-            "rewrite": "./market/index/overview",
+            "url": "/market",
+            "rewrite": "/market/index/overview",
             "icon": "fa fa-cube",
             "children": [
               {
                 "label": "概况",
-                "url": "./market/index/overview",
+                "url": "/market/index/overview",
                 "icon": "fa fa-line-chart",
-                "schemaApi": "get:/pages/index_overview.json"
+                "schemaApi": "get:./pages/index_overview.json"
               },
               {
                 "label": "指数温度",
-                "url": "./market/index/temperature",
+                "url": "/market/index/temperature",
                 "icon": "fa fa-thermometer-three-quarters",
-                "schemaApi": "get:/pages/index_temperature.json"
-              },
-              {
-                "label": "查看",
-                "url": "/crud/:id",
-                "schemaApi": "get:/pages/crud-view.json"
-              },
-              {
-                "label": "修改",
-                "url": "/crud/:id/edit",
-                "schemaApi": "get:/pages/crud-edit.json"
+                "schemaApi": "get:./pages/index_temperature.json"
               }
             ]
           },
@@ -50,33 +40,33 @@
               {
                 "label": "基金公司基本信息",
                 "url": "/fund_company/base",
-                "schemaApi": "get:/pages/fund_company_base.json"
+                "schemaApi": "get:./pages/fund_company_base.json"
               },
               {
                 "label": "基金公司详情",
                 "url": "/fund_company/scale-ratio",
                 "visible": false,
-                "schemaApi": "get:/pages/fund_company_detail.json"
+                "schemaApi": "get:./pages/fund_company_detail.json"
               },
               {
                 "label": "基金规模数据",
                 "url": "/fund_company/scale",
-                "schemaApi": "get:/pages/fund_company_scale.json"
+                "schemaApi": "get:./pages/fund_company_scale.json"
               },
               {
                 "label": "平均收益水平",
                 "url": "/fund_company/yield",
-                "schemaApi": "get:/pages/fund_company_yield.json"
+                "schemaApi": "get:./pages/fund_company_yield.json"
               },
               {
                 "label": "基金经理工作年限",
                 "url": "/fund_company/work-year",
-                "schemaApi": "get:/pages/fund_company_work-year.json"
+                "schemaApi": "get:./pages/fund_company_work-year.json"
               },
               {
                 "label": "金牛奖获奖数据",
                 "url": "/fund_company/award",
-                "schemaApi": "get:/pages/fund_company_awards.json"
+                "schemaApi": "get:./pages/fund_company_awards.json"
               }
             ]
           },
