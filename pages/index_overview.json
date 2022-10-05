@@ -174,6 +174,8 @@
                                 "method": "get",
                                 "url": "INVEST_HOST/index/fundmental/line-plot-data?stock_codes=000300,000905,000852&metrics=${select}"
                             },
+                            "initFetch": false,
+                            "trackExpression": "${select}",
                             "config": {
                                 "toolbox": {
                                     "feature": {
@@ -297,6 +299,8 @@
                                 "method": "get",
                                 "url": "INVEST_HOST/index/fundmental/line-plot-data?stock_codes=${select1}&metrics=${select2}"
                             },
+                            "initFetch": false,
+                            "trackExpression": "${select1} + ${select2}",
                             "config": {
                                 "toolbox": {
                                     "feature": {
@@ -368,8 +372,8 @@
                     "body": [
                         {
                             "type": "select",
-                            "label": "请选择指数",
-                            "name": "select4",
+                            "label": "请选择股指数",
+                            "name": "select3",
                             "options": [
                                 {
                                     "label": "沪深300",
@@ -389,11 +393,31 @@
                             "value": "000906"
                         },
                         {
+                            "type": "select",
+                            "label": "请选择计算方式",
+                            "name": "select4",
+                            "options": [
+                                {
+                                    "label": "差值",
+                                    "value": "-"
+                                },
+                                {
+                                    "label": "比值",
+                                    "value": "/"
+                                }
+                            ],
+                            "size": "lg",
+                            "mode": "inline",
+                            "value": "-"
+                        },
+                        {
                             "type": "chart",
                             "api": {
                                 "method": "get",
-                                "url": "INVEST_HOST/debt/mix-metrics/fed?stock_code=${select4}"
+                                "url": "INVEST_HOST/debt/mix-metrics/fed?stock_code=${select3}"
                             },
+                            "initFetch": false,
+                            "trackExpression": "${select3} + ${select4}",
                             "config": {
                                 "toolbox": {
                                     "feature": {
