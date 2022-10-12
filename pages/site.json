@@ -38,8 +38,9 @@
             "rewrite": "/fund_company/base",
             "children": [
               {
-                "label": "基金公司基本信息",
+                "label": "基金公司列表",
                 "url": "/fund_company/base",
+                "icon": "fa fa-info-circle",
                 "schemaApi": "get:./pages/fund_company_base.json"
               },
               {
@@ -51,22 +52,32 @@
               {
                 "label": "基金规模数据",
                 "url": "/fund_company/scale",
+                "icon": "fa fa-database",
                 "schemaApi": "get:./pages/fund_company_scale.json"
               },
               {
                 "label": "平均收益水平",
                 "url": "/fund_company/yield",
+                "icon": "fa fa-bar-chart",
                 "schemaApi": "get:./pages/fund_company_yield.json"
               },
               {
-                "label": "基金经理工作年限",
+                "label": "经理工作年限",
                 "url": "/fund_company/work-year",
+                "icon": "fa fa-calendar-times-o",
                 "schemaApi": "get:./pages/fund_company_work-year.json"
               },
               {
                 "label": "金牛奖获奖数据",
                 "url": "/fund_company/award",
+                "icon": "fa fa-trophy",
                 "schemaApi": "get:./pages/fund_company_awards.json"
+              },
+              {
+                "label": "基金公司筛选",
+                "url": "/fund_company/filter-res",
+                "icon": "fa fa-wrench",
+                "schemaApi": "get:./pages/fund_company_filter_res.json"
               }
             ]
           },

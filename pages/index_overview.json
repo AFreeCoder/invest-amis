@@ -414,7 +414,7 @@
                             "type": "chart",
                             "api": {
                                 "method": "get",
-                                "url": "INVEST_HOST/debt/mix-metrics/fed?stock_code=${select3}"
+                                "url": "INVEST_HOST/debt/mix-metrics/fed?stock_code=${select3}&compute_method=${select4}"
                             },
                             "initFetch": false,
                             "trackExpression": "${select3} + ${select4}",

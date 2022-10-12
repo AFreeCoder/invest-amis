@@ -1,0 +1,144 @@
+{
+    "type": "page",
+    "title": "基金公司筛选结果",
+    "body": [
+      {
+        "type": "crud",
+        "name": "my_crud",
+        "initFetch": false,
+        "columns": [
+          {
+            "name": "index",
+            "label": "id",
+            "type": "text"
+          },
+          {
+            "name": "fund_company",
+            "label": "公司名称",
+            "type": "text"
+          },
+          {
+            "name": "establish_date",
+            "label": "创建时间",
+            "type": "text"
+          },
+          {
+            "type": "text",
+            "label": "规模(亿)",
+            "name": "scale",
+            "sortable": true
+          },
+          {
+            "type": "text",
+            "label": "基金数量",
+            "name": "fund_count",
+            "sortable": true
+          },
+          {
+            "type": "text",
+            "label": "更新日期",
+            "name": "update_date"
+          }
+        ],
+        "itemAction": {
+          "type": "button",
+          "actionType": "link",
+          "link": "../fund_company/scale-ratio?fund_company=${fund_company}&company_code=${company_code}"
+        },
+        "filter": {
+          "debug": true,
+          "title": "条件搜索",
+          "body": [
+            {
+              "type": "group",
+              "debug": true,
+              "body": [
+                {
+                  "type": "condition-builder",
+                  "label": "条件组件",
+                  "name": "conditions",
+                  "target": "my_crud",
+                  "description": "适合让用户自己拼查询条件，然后后端根据数据生成 query where",
+                  "searchable": true,
+                  "fields": [
+                    {
+                      "label": "非货币理财型基金规模排名",
+                      "type": "number",
+                      "name": "non-monetary-wm-scale",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "非货币理财型基金平均规模排名",
+                      "type": "number",
+                      "name": "non-monetary-wm-avg-scale",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "股票型基金规模排名",
+                      "type": "number",
+                      "name": "equity-scale",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "混合型基金规模排名",
+                      "type": "number",
+                      "name": "hybrid-scale",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "股票型基金近5年平均收益排名",
+                      "type": "number",
+                      "name": "equity_yield_avg_five_year",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "混合型基金近5年平均收益排名",
+                      "type": "number",
+                      "name": "hybrid-avg-five-year-yield",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "金牛基金公司奖获奖数",
+                      "type": "number",
+                      "name": "awards-num",
+                      "operators": [
+                        "greater_or_equal"
+                      ]
+                    },
+                    {
+                      "label": "基金经理平均任职年限排名",
+                      "type": "number",
+                      "name": "work-year",
+                      "operators": [
+                        "less_or_equal"
+                      ]
+                    }
+                  ],
+                  "validateOnChange": false,
+                  "mode": "horizontal",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        },
+        "syncLocation": false,
+        "api": {
+          "method": "post",
+          "url": "INVEST_HOST/finance/fund-company/filter-res"
+        }
+      }
+    ]
+  }

@@ -7,7 +7,7 @@
             "syncLocation": true,
             "api": {
                 "method": "get",
-                "url": "INVEST_HOST/finance/fund-company/work-year?orderDir=${orderDir}"
+                "url": "INVEST_HOST/finance/fund-company/work-year?orderDir=${orderDir|default:desc}"
             },
             "columns": [
                 {
