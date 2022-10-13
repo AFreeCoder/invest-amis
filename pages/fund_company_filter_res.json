@@ -1,6 +1,6 @@
 {
     "type": "page",
-    "title": "基金公司筛选结果",
+    "title": "基金公司筛选",
     "body": [
       {
         "type": "crud",
@@ -46,19 +46,19 @@
           "link": "../fund_company/scale-ratio?fund_company=${fund_company}&company_code=${company_code}"
         },
         "filter": {
-          "debug": true,
+          "debug": false,
           "title": "条件搜索",
           "body": [
             {
               "type": "group",
-              "debug": true,
+              "debug": false,
               "body": [
                 {
                   "type": "condition-builder",
-                  "label": "条件组件",
+                  "label": "",
                   "name": "conditions",
                   "target": "my_crud",
-                  "description": "适合让用户自己拼查询条件，然后后端根据数据生成 query where",
+                  "description": "支持不同查询的 and 和 or 的组合",
                   "searchable": true,
                   "fields": [
                     {
@@ -96,7 +96,7 @@
                     {
                       "label": "股票型基金近5年平均收益排名",
                       "type": "number",
-                      "name": "equity_yield_avg_five_year",
+                      "name": "equity-avg-five-year-yield",
                       "operators": [
                         "less_or_equal"
                       ]
